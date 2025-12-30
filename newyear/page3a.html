@@ -38,15 +38,21 @@ h1 {
 /* Floating hearts */
 .heart {
   position:absolute;
+  display:block;              /* IMPORTANT */
   width:clamp(18px, 6vw, 32px);
   height:clamp(18px, 6vw, 32px);
   stroke:red;
   stroke-width:2;
   fill:none;
-  opacity:0.8;
+  opacity:0.85;
   filter: drop-shadow(0 0 6px red);
-  animation: float linear infinite;
   pointer-events:none;
+
+  /* FIXED animation */
+  animation-name: float;
+  animation-duration: 4s;     /* BASE duration */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes float {
@@ -95,21 +101,26 @@ button:hover {
 
 <script>
 const heartSVG = `
-<svg viewBox="0 0 32 29.6" xmlns="http://www.w3.org/2000/svg" class="heart">
-  <path d="M23.6,0c-3.4,0-5.6,2.7-7.6,5.3C13.9,2.7,11.7,0,8.3,0
-  C3.7,0,0,3.7,0,8.3c0,4.8,5.6,9.6,14.4,17.3
-  c8.8-7.7,14.4-12.5,14.4-17.3C32,3.7,28.3,0,23.6,0z"/>
+<svg viewBox="0 0 32 29.6"
+     xmlns="http://www.w3.org/2000/svg"
+     class="heart">
+  <path d="M23.6,0c-3.4,0-5.6,2.7-7.6,5.3
+           C13.9,2.7,11.7,0,8.3,0
+           C3.7,0,0,3.7,0,8.3
+           c0,4.8,5.6,9.6,14.4,17.3
+           c8.8-7.7,14.4-12.5,14.4-17.3
+           C32,3.7,28.3,0,23.6,0z"/>
 </svg>`;
 
-// Create hearts
-for(let i=0; i<18; i++){
-  const wrapper = document.createElement('div');
+// Create floating hearts
+for (let i = 0; i < 18; i++) {
+  const wrapper = document.createElement("div");
   wrapper.innerHTML = heartSVG;
-  const heart = wrapper.firstChild;
+  const heart = wrapper.firstElementChild;
 
-  heart.style.left = Math.random()*100 + 'vw';
-  heart.style.animationDuration = (3 + Math.random()*3) + 's';
-  heart.style.animationDelay = Math.random()*2 + 's';
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.animationDelay = (Math.random() * 2) + "s";
 
   document.body.appendChild(heart);
 }
@@ -117,3 +128,6 @@ for(let i=0; i<18; i++){
 
 </body>
 </html>
+
+
+
