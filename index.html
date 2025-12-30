@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Page 1</title>
-<style>
-  body { margin:0; padding:0; height:100vh; display:flex; justify-content:center; align-items:center; font-family:Arial; background:url("newyear/bg.jpg") no-repeat center/cover; cursor:pointer; }
-  h1 { color:white; font-size:30px; text-align:center; }
-  img { width:100px; display:block; margin-bottom:20px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 1</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: url("./bg.jpg") no-repeat center/cover;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      width: 25vw;
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 6vw;
+      max-font-size: 36px;
+    }
+  </style>
 </head>
-<body onclick="window.location='newyear/page2.html'">
-  <div>
-    <img src="newyear/emoji1.png" alt="emoji1">
-    <h1>Click anywhere</h1>
-  </div>
+
+<body onclick="window.location='page2.html'">
+  <img src="./emoji1.png" alt="emoji">
+  <h1>Click anywhere</h1>
 </body>
 </html>
 
