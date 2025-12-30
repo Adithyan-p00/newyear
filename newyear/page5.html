@@ -9,6 +9,7 @@
 body {
   margin: 0;
   height: 100vh;
+  position: relative; /* 🔑 FIX */
   background: url("./bg2.jpg") no-repeat center/cover;
   overflow: hidden;
   font-family: Arial, sans-serif;
@@ -83,7 +84,7 @@ body {
   width: 4px;
   height: 20px;
   background: white;
-  z-index: 6;
+  z-index: 999; /* 🔑 FIX */
   animation: launch 1.6s ease-out forwards;
 }
 
@@ -97,7 +98,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  z-index: 6;
+  z-index: 999; /* 🔑 FIX */
   animation: fall 3s ease-out forwards;
 }
 
